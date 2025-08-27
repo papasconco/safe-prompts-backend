@@ -6,6 +6,20 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Debug environment variables
+console.log('Starting server...');
+console.log('PORT:', PORT);
+console.log('MAILCHIMP_SERVER_PREFIX:', process.env.MAILCHIMP_SERVER_PREFIX || 'NOT SET');
+console.log('API Key exists:', !!process.env.MAILCHIMP_API_KEY);
+console.log('List ID exists:', !!process.env.MAILCHIMP_LIST_ID);
+
+// MailChimp configuration
+const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY;
+const MAILCHIMP_SERVER_PREFIX = process.env.MAILCHIMP_SERVER_PREFIX;
+const MAILCHIMP_LIST_ID = process.env.MAILCHIMP_LIST_ID;
+
+// Rest of your code...
+
 // Middleware
 app.use(cors({
     origin: [
@@ -107,3 +121,12 @@ app.get('/api/health', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+
+
+
+
+
+
+
+
