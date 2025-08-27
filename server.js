@@ -13,12 +13,10 @@ console.log('MAILCHIMP_SERVER_PREFIX:', process.env.MAILCHIMP_SERVER_PREFIX || '
 console.log('API Key exists:', !!process.env.MAILCHIMP_API_KEY);
 console.log('List ID exists:', !!process.env.MAILCHIMP_LIST_ID);
 
-// MailChimp configuration
+// MailChimp configuration - ONLY DECLARE ONCE
 const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY;
 const MAILCHIMP_SERVER_PREFIX = process.env.MAILCHIMP_SERVER_PREFIX;
 const MAILCHIMP_LIST_ID = process.env.MAILCHIMP_LIST_ID;
-
-// Rest of your code...
 
 // Middleware
 app.use(cors({
@@ -30,11 +28,6 @@ app.use(cors({
     credentials: true
 }));
 app.use(express.json());
-
-// MailChimp configuration
-const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY;
-const MAILCHIMP_SERVER_PREFIX = process.env.MAILCHIMP_SERVER_PREFIX;
-const MAILCHIMP_LIST_ID = process.env.MAILCHIMP_LIST_ID;
 
 // Free sampler signup endpoint
 app.post('/api/free-sampler-signup', async (req, res) => {
@@ -121,12 +114,3 @@ app.get('/api/health', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
-
-
-
-
-
-
-
-
-
